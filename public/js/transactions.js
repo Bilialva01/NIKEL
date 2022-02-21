@@ -16,6 +16,8 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     const date = document.getElementById("date-input").value;
     const type = document.querySelector('input[name="type-input"]:checked').value;
 
+    checklogged();
+
     data.transactions.unshift({
         value: value, type: type, description: description, date: date
     });  
@@ -25,13 +27,10 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     myModal.hide();
 
     getTransactions();
+   
     
     alert("Lançamento adicionado com sucesso.");
-
-
 });
-
-checklogged();
 
 function checklogged() {
     if(session) {
@@ -55,7 +54,7 @@ function checklogged() {
 }
 
 function logout() {
-    sessionStorage.removeItem("looged");
+    sessionStorage.removeItem("logged");
     localStorage.removeItem("session");
 
     window.location.href = "index.html";
@@ -69,7 +68,7 @@ function getTransactions(){
         transactions.forEach((item) => {
             let type = "Entrada";
 
-            if(intem.type === "2") {
+            if(item.type === "2") {
             type = "Saída";
             }
 
@@ -79,7 +78,7 @@ function getTransactions(){
                 <td>${item.value.toFixed(2)}</td>
                 <td>${type}</td>
                 <td>${item.description}</td>
-        </tr>
+             </tr>
             `
 
         })

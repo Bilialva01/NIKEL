@@ -26,7 +26,7 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
             return;
         }
     
-        saveSesseion(email, checkSession);
+        saveSession(email, checkSession);
         
         window.location.href = "home.html";
     }
@@ -39,15 +39,15 @@ document.getElementById("create-form").addEventListener("submit", function(e){
     const email = document.getElementById("email-create-input").value;
     const password = document.getElementById("password-create-input").value;
 
-    console.log(email,password);
 
-    if(email,length < 50) {
-        alert("Preencha o campo com um e-mail válido")
+    if(email.length < 5) {
+        alert("Preencha o campo com um e-mail válido");
         return;
     }
 
     if(password.length < 4) {
         alert("Preencha a senha com no mínimo 4 digitos.");
+        return;
     }
 
     saveAccont({

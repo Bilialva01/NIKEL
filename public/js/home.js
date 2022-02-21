@@ -1,6 +1,7 @@
 const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
+
 let data = {
     transactions: []
 };
@@ -12,7 +13,7 @@ document.getElementById("transactions-button").addEventListener("click", functio
 
 //ADICIONAR LANÇAMENTO
 document.getElementById("transaction-form").addEventListener("submit", function(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const value = parseFloat(document.getElementById("value-input").value);
     const description = document.getElementById("description-input").value;
@@ -33,8 +34,9 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     
     alert("Lançamento adicionado com sucesso.");
 
-
+    
 });
+
 
 checklogged();
 
@@ -61,14 +63,14 @@ function checklogged() {
 }
 
 function logout() {
-    sessionStorage.removeItem("looged");
+    sessionStorage.removeItem("logged");
     localStorage.removeItem("session");
 
     window.location.href = "index.html";
 }
 
 function getCashIn() {
-    const transactions = data.transactions
+    const transactions = data.transactions;
 
     const cashIn = transactions.filter((item) => item.type === "1");
 
@@ -81,11 +83,11 @@ function getCashIn() {
         } else {
             limit = cashIn.length;
         }
-    }
+    
 
     for (let index = 0; index < limit; index++) {
-        cashInHtml +=`
-        <div class="row m-4">
+        cashInHtml += `
+        <div class="row mb-4">
         <div class="col-12">
             <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
             <div class="container p-0">
@@ -99,16 +101,21 @@ function getCashIn() {
             </div>
          </div>
     </div>
-</div>
+    </div>
     `
     }
+
+    document.getElementById("cash-in-list").innerHTML = cashInHtml;
+    }
+
+}
 
     function getCashOut() {
         const transactions = data.transactions
     
         const cashIn = transactions.filter((item) => item.type === "2");
     
-        if(cashIn.length) {
+        if(cashOut.length) {
             let cashInHtml = ``;
             let limit = 0;
     
@@ -117,10 +124,9 @@ function getCashIn() {
             } else {
                 limit = cashIn.length;
             }
-        }
     
         for (let index = 0; index < limit; index++) {
-            cashInHtml +=`
+            cashOutHtml +=`
             <div class="row m-4">
             <div class="col-12">
                 <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
@@ -135,12 +141,15 @@ function getCashIn() {
                 </div>
              </div>
         </div>
-    </div>
+        </div>
         `
-        }    
-
-    document.getElementById("cash-out-list").innerHTML = cashInHtml;
+        }   
+        
+        document.getElementById("cash-out-list").innerHTML = cashInHtml;
+    }
 }
+
+
 
 function getTotal() {
     const transactions = data.transactions;
@@ -161,5 +170,4 @@ function getTotal() {
 
 function saveData(data) {
     localStorage.setItem(data.login, JSON.stringify(data));
-}
-}
+};

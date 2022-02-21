@@ -34,8 +34,6 @@ function imprimirPessoa(pessoa) {
 }
 
 
-console.log(nomes0);
-
 //imprimirPessoa(pessoaDefault);
 
 //imprimirPessoa({
