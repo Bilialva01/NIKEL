@@ -22,9 +22,8 @@
               </button>
               <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <div class="d-flex menu">
-                    <a href="home.html"><button class="btn" type="button"><i 
-                                class="bi bi-house-door-fill fs-4"></i></button></a>
-                    <a href="transactions.html"><button class="btn" type="button"><i class="bi bi-currency-exchange fs-4 color-secondary"></i></button></a>
+                  <a href="home.html"><button class="btn" type="button"><i class="bi bi-house-door-fill fs-4"></i></button></a>
+                  <a href="transactions.html"><button class="btn" type="button"><i class="bi bi-currency-exchange fs-4 color-secundary"></i></button></a>  
                    
                     <div class="dropdown">
                         <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,9 +33,8 @@
                             <li><button class="dropdown-item" id="button-logout">Sair</button></li>
                         </ul>
                       </div>
-                </div>
-                
-              </div>
+                  </div>
+               </div>
             </div>
           </nav>
     </header>
@@ -57,7 +55,7 @@
                 <div class="col-12 info shadow-lg">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-12">
                                 <table class="table">
                                     <thead>
                                       <tr>
@@ -68,68 +66,69 @@
                                       </tr>
                                     </thead>
                                     <tbody id="transactions-list">
-                                      
-                                    </tbody>
+                                   </tbody>
                                   </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="btn button-float" data-bs-toggle="modal" data-bs-target="#transaction-modal"><i
-                class="bi bi-plus"></i></button>
-        </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="button-float">
+                      <button class="btn button-float" data-bs-toggle="modal" data-bs-target="#transaction-modal"> 
+                          <i class="bi bi-plus button-color"> </i> 
+                      </button>
+                  </div>
+              </div>
         
-         <!-- Modal -->
-  <div class="modal fade" id="transaction-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Adicionar Lançamento</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form id="transaction-form">
-            <div class="modal-body">
-                    <div class="mb-3">
-                            <label for="value-input" class="form-label">Valor</label>
-                            <input type="number" step="any" class="form-control" id="value-input" 
-                                aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label for="description-input" class="form-label">Descrição</label>
-                                <input type="text" class="form-control" id="description-input">
-                            </div>
-                            <div class="mb-3">
-                                <label for="date-input" class="form-label">Data</label>
-                                <input type="date" class="form-control" id="date-input">
-                            </div>
-                            <div class="mb-3">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type-input" id="inlineRadio1" value="1" checked>
-                                    <label class="form-check-label" for="inlineRadio1">Entrada</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="type-input" id="inlineRadio2" value="2">
-                                    <label class="form-check-label" for="inlineRadio2">Saída</label>
-                                  </div>
-                            </div>
-                        </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Permanecer logado.</label>
-                        </div>
-                    </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary button-cancel"
-                        data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn button-default">Adicionar</button>
+ <!-- Modal -->
+ <div class="modal fade" id="transaction-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Lançamentos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="transaction-form">
+          <div class="modal-body">
+              <div class="mb-3">
+                <label for="value-input" class="form-label">Valor</label>
+                <input type="number" step="any" class="form-control" id="value-input" aria-describedby="emailHelp" required>
+              </div>
+              <div class="mb-3">
+                <label for="description-input" class="form-label">Descrição</label>
+                <input type="text" class="form-control" id="description-input" required> 
+              </div>
+              <div class="mb-3">
+                  <label for="date-input" class="form-label">Data</label>
+                  <input type="date" class="form-control" id="date-input" aria-describedby="emailHelp" required>
                 </div>
-            </form>
-        </div>
+              <div class="mb-3">
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="type-input" id="inlineRadio1" value="1" checked>
+                      <label class="form-check-label" for="inlineRadio1">Entrada</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="type-input" id="inlineRadio2" value="2">
+                      <label class="form-check-label" for="inlineRadio2">Saída</label>
+                    </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary button-cancel" data-bs-dismiss="modal">Cancelar</button>
+              <div class="button-transaction">
+                  <button type="submit" class="btn">
+                      <div class="text-login3">
+                          Adicionar
+                      </div> 
+                  </button>
+              </div>
+          </div>
+      </form>
     </div>
   </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./js/transactions.js"></script>
+</div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="./js/transactions.js"></script>
 </body>
 </html>

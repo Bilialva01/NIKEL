@@ -35,7 +35,7 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     alert("Lançamento adicionado com sucesso.");
 
     
-});
+})
 
 
 checklogged();
@@ -111,11 +111,11 @@ function getCashIn() {
 }
 
     function getCashOut() {
-        const transactions = data.transactions
+        const transactions = data.transactions;
     
         const cashIn = transactions.filter((item) => item.type === "2");
     
-        if(cashOut.length) {
+        if(cashIn.length) {
             let cashInHtml = ``;
             let limit = 0;
     
@@ -126,7 +126,7 @@ function getCashIn() {
             }
     
         for (let index = 0; index < limit; index++) {
-            cashOutHtml +=`
+            cashInHtml +=`
             <div class="row m-4">
             <div class="col-12">
                 <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
@@ -170,4 +170,4 @@ function getTotal() {
 
 function saveData(data) {
     localStorage.setItem(data.login, JSON.stringify(data));
-};
+}

@@ -54,12 +54,12 @@ document.getElementById("create-form").addEventListener("submit", function(e){
         login: email,
         password: password,
         transactions:[]
-    });
+    })
 
     myModal.hide();
     
     alert("Conta criada com sucesso.");
-});
+})
 
 function checklogged() {
     if(session) {
